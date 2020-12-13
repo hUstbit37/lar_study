@@ -8,6 +8,7 @@ use Auth;
 use App\QlVideo;
 use App\User;
 use App\Comment;
+
 class HomeController extends Controller
 {
     /**
@@ -27,9 +28,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data2=User::find(Auth::user()->id);
-        $data=User::find(Auth::user()->id)->comment()->orderBy('created_at', 'desc')->paginate(4);
-        $s=Comment::all();
+        $data2 = User::find(Auth::user()->id);
+        $data = User::find(Auth::user()->id)->comment()->orderBy('created_at', 'desc')->paginate(4);
+        $s = Comment::all();
         return view('home', compact('s', 'data2'));
     }
 }

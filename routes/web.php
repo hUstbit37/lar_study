@@ -1,5 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+Auth::routes();
+Route::view('/{any}', 'VueVideo/index')
+    ->where('any', '.*');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -14,7 +22,7 @@ Route::get('test', function () {
     return view('testvideo');
 });
 
-Auth::routes();
+
 
 // ---------------------------------------------
 

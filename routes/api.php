@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('register', 'AuthController@register');
+Route::post('login', 'AuthController@login');
+Route::post('show', 'VueController@listVideo');
+Route::post('upload', 'VueController@upload');
+Route::post('getSub', 'VueController@getSub');
+Route::post('sub', 'VueController@sub');
+Route::post('testUpload', 'VueController@testUpload');
+
+Route::group(['middleware' => 'auth:api'], function () {
+});
